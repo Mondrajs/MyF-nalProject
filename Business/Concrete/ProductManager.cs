@@ -9,6 +9,7 @@ using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
+using Business.BussinesAspects.Autofac;
 using Core.Utiliries.Business;
 using DataAccess.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore.Internal;
@@ -27,7 +28,7 @@ namespace Business.Concrete
         }
 
         //claim
-        //[SercuredOperation("product.add,admin")]
+        [SecuredOperation("product.add,admin")]
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
